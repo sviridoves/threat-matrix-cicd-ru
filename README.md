@@ -10,7 +10,7 @@
 - [Компоненты CI/CD](#компоненты-cicd)
 - [Техники и Способы предотвращения](#техники-и-способы-предотвращения)
     - [Первоначальный доступ](#первоначальный-доступ)
-    - [Execution](#execution)
+    - [Выполнение](#выполнение)
     - [Execution (Production)](#execution-production)
     - [Persistence](#persistence)
     - [Privilege Escalation](#privilege-escalation)
@@ -51,7 +51,7 @@
 
 <table>
   <tr>
-   <td>Техники
+   <td>Техника
    </td>
    <td>Описание
    </td>
@@ -66,7 +66,7 @@
    <td>
 <ol>
 
-<li>(CI, CD) Контроль и ограничение исходящих соединений через прокси-сервер или по IP-адресам
+<li>(CI, CD) Контроль и ограничение исходящих соединений через прокси-сервер и/или по IP-адресам
 
 <li>(CI, CD) Аудит журналов
 
@@ -137,128 +137,128 @@
 
 
 
-### Execution
+### Выполнение
 
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Modify CI/CD Configuration
+   <td>Изменение конфигурации CI/CD
    </td>
-   <td>Modify CI/CD Configuration on Git Repository
+   <td>Изменение конфигурации CI/CD в репозитории Git
 <p>
 (CircleCI: .circleci/config.yml, CodeBuild: buildspec.yml, CloudBuild: cloudbuild.yaml, GitHub Actions: .github/workflows/*.yaml)
    </td>
    <td>
 <ol>
 
-<li>(Git Repository) Only allow pushing of signed commits
+<li>(Git Repository) Разрешить отправку только подписанных коммитов
 
-<li>(CI, CD) Disallow CI/CD config modification without review (CI/CD must not follow changes of a branch without review)
+<li>(CI, CD) Запретить изменение конфигурации CI/CD без проверки (CI/CD не должен применять изменения ветки без проверки)
 
-<li>(CI, CD) Add signature to CI/CD config and verify it
+<li>(CI, CD) Добавьте подпись в конфигурацию CI/CD и её проверку
 
-<li>(CI, CD) Limit egress connections via Proxy and IP restrictions
+<li>(CI, CD) Контроль и ограничение исходящих соединений через прокси-сервер и/или по IP-адресам
 
-<li>(CI, CD) Audit Logging of activities
+<li>(CI, CD) Аудит журналов
 
-<li>(CI, CD) Security Monitoring using IDS/IPS, and EDR
+<li>(CI, CD) Мониторинг безопасности с использованием IDS/IPS и EDR
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Inject code to IaC configuration
+   <td>Внедрение кода в конфигурацию IaC
    </td>
-   <td>For example, Terraform allows code execution and file inclusion. The code is executed during CI(plan stage)
+   <td>Например, Terraform позволяет выполнять код и включение файлов. Код выполняется на этапе CI (этап планирования)
 <p>
-Code Execution: Provider installation(put provider binary with .tf), Use External provider <br>
-File inclusion: file Function
+Выполнение кода: Установка поставщика (поместите двоичный файл поставщика с расширением .tf), Используйте внешнего поставщика <br>
+Включение файлов: функция из внешнего файла
    </td>
    <td>
 <ol>
 
-<li>(Git Repository) Only allow pushing of signed commits
+<li>(Git Repository) Разрешить отправку только подписанных коммитов
 
-<li>(CI, CD) Restrict dangerous code through Policy as Code
+<li>(CI, CD) Ограничить опасный код с помощью Policy as Code
 
-<li>(CI, CD) Restrict untrusted providers
+<li>(CI, CD) Ограничить ненадежных поставщиков
 
-<li>(CI, CD) Limit egress connections via Proxy and IP restrictions
+<li>(CI, CD) Контроль и ограничение исходящих соединений через прокси-сервер и/или по IP-адресам
 
-<li>(CI, CD) Audit Logging of activities
+<li>(CI, CD) Аудит журналов
 
-<li>(CI, CD) Security Monitoring using IDS/IPS, and EDR
+<li>(CI, CD) Мониторинг безопасности с использованием IDS/IPS и EDR
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Inject code to source code
+   <td>Внедрение кода в исходный код
    </td>
-   <td>Application executes test code during CI
+   <td>Приложение выполняет тестовый код во время CI
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Restrict dangerous code through Policy as Code
+<li>(CI, CD) Ограничить опасный код с помощью Policy as Code
 
-<li>(CI, CD) Limit egress connections via Proxy and IP restrictions
+<li>(CI, CD) Контроль и ограничение исходящих соединений через прокси-сервер и/или по IP-адресам
 
-<li>(CI, CD) Audit Logging of the activities
+<li>(CI, CD) Аудит журналов
 
-<li>(CI, CD) Security Monitoring using IDS/IPS, and EDR
+<li>(CI, CD) Мониторинг безопасности с использованием IDS/IPS и EDR
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Supply Chain Compromise on CI/CD
+   <td>Компрометация цепочки поставок в CI/CD
    </td>
-   <td>(Repeated)
+   <td>(Повтор)
    </td>
    <td>
    </td>
   </tr>
   <tr>
-   <td>Inject bad dependency
+   <td>Внедрение плохой зависимости
    </td>
-   <td>Inject bad dependency
+   <td>Внедрение плохой зависимости
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Code checks by SCA(Software composition analysis)
+<li>(CI, CD) Проверка кода с помощью SCA (анализ состава программного обеспечения)
 
-<li>(CI, CD) Restrict untrusted libraries, and tools
+<li>(CI, CD) Запрет использования ненадежных библиотек и инструментов
 
-<li>(CI, CD) Limit egress connections via Proxy and IP restrictions
+<li>(CI, CD) Контроль и ограничение исходящих соединений через прокси-сервер и/или по IP-адресам
 
-<li>(CI, CD) Audit Logging of activities
+<li>(CI, CD) Аудит журналов
 
-<li>(CI, CD) Security Monitoring using IDS/IPS, and EDR
+<li>(CI, CD) Мониторинг безопасности с использованием IDS/IPS и EDR
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>SSH to CI/CD pipelines
+   <td>SSH для CI/CD pipelines
    </td>
-   <td>Connect to CI/CD pipeline servers via SSH or Valid Token
+   <td>Подключение к серверам CI/CD pipeline через SSH или действительный токен
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Implement strict access control to CI/CD pipeline servers
+<li>(CI, CD) Внедрить строгий контроль доступа к серверам CI/CD pipeline
 
-<li>(CI, CD) Disallow SSH access
+<li>(CI, CD) Запретить доступ по SSH
 </li>
 </ol>
    </td>
