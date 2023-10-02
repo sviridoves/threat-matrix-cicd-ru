@@ -40,7 +40,7 @@
 | Device                 | - Рабочая станция разработчика: Mac/Win/Cloud-based                                                                                                 |
 | Git Repository Service | - GitHub, GitLab                                                                                                                                    |
 | CI                     | - CI/CD Сервисы (такие, как: CircleCI, Cloud Build, Codebuild, GitHub Actions)                                                                      |
-| CD                     | - CI/CD Сервисы (такие, как: CircleCI, Cloud Build, Codebuild, GitHub Actions) <br>- CD Services (e.g. Spinnaker, ArgoCD)                           |
+| CD                     | - CI/CD Сервисы (такие, как: CircleCI, Cloud Build, Codebuild, GitHub Actions) <br>- CD Сервисы (такие, как: Spinnaker, ArgoCD)                     |
 | Secret Management      | - Сервисы управления секретами (такие, как: AWS Secret Manager, GCP Secret Manager, HashiCorp Vault)                                                |
 | Production environment | - Облачные сервисы (такие, как: AWS, Google Cloud, Microsoft Azure) <br>- Другие ресурсы (такие, как: Container Registry, Linux Server, Kubernetes) |
 
@@ -102,33 +102,33 @@
    </td>
   </tr>
   <tr>
-   <td>Valid Account of CI/CD Service
+   <td>Действующая учетная запись службы CI/CD
 <p>
-(Personal Token, Login password, Browser Cookie)
+(Личный токен, пароль, файл cookie браузера)
    </td>
-   <td>Use SSH key or Tokens to access to CI/CD Service Servers directly
+   <td>Используются ключ SSH или токены для прямого доступа к серверам службы CI/CD
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Strict access control to CI/CD pipeline servers
+<li>(CI, CD) Строгий контроль доступа к серверам CI/CD Pipeline
 
-<li>(CI, CD) Hardening CI/CD pipeline servers
+<li>(CI, CD) Усиление защиты серверов CI/CD Pipeline
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Valid Admin account of Server hosting Git Repository
+   <td>Действующая учетная запись администратора сервера, на котором размещен репозиторий Git
    </td>
-   <td>Use SSH key, Tokens to access to Server hosting Git Repository
+   <td>Используются ключ SSH и токены для доступа к серверу, на котором размещен репозиторий Git
    </td>
    <td>
 <ol>
 
-<li>(Git Repository) Strict access control to server hosting Git Repository
+<li>(Git Repository) Строгий контроль доступа к серверу, на котором размещен репозиторий Git
 
-<li>(Git Repository) Hardening git repository servers
+<li>(Git Repository) Усиление защиты серверов репозитория Git
 </li>
 </ol>
    </td>
