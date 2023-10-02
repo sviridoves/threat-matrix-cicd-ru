@@ -11,10 +11,10 @@
 - [Техники и Способы предотвращения](#техники-и-способы-предотвращения)
     - [Первоначальный доступ](#первоначальный-доступ)
     - [Выполнение](#выполнение)
-    - [Execution (Production)](#execution-production)
-    - [Persistence](#persistence)
-    - [Privilege Escalation](#privilege-escalation)
-    - [Defense Evasion](#defense-evasion)
+    - [Выполнение (Производственная среда)](#выполнение-производственная-среда)
+    - [Закрепление](#закрепление)
+    - [Повышение привилегий](#повышение-привилегий)
+    - [Предотвращение обнаружения](#предотвращение-обнаружения)
     - [Credential Access](#credential-access)
     - [Lateral Movement](#lateral-movement)
     - [Exfiltration](#exfiltration)
@@ -331,76 +331,76 @@
 
 
 
-### Persistence
+### Закрепление
 
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Compromise CI/CD Server
+   <td>Компрометация CI/CD сервера
    </td>
-   <td>Compromise CI/CD Server from pipeline
+   <td>Компрометация CI/CD сервера из pipeline
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Clean environment created on every pipeline run
+<li>(CI, CD) Чистая среда, создаваемая при каждом запуске pipeline
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Implant CI/CD runner images
+   <td>Внедрение образов в CI/CD runner'ы
    </td>
-   <td>Implant container images for CI/CD with malicious code to establish persistence
+   <td>Внедрение образов контейнеров для CI/CD с вредоносным кодом для обеспечения сохраняемости
    </td>
    <td>
 <ol>
 
-<li>Use signed/trusted CI runners only
+<li>Используйте только подписанные/доверенные CI runner'ы
 
-<li>Implement strict access controls to container registry
+<li>Внедрите строгий контроль доступа к реестру контейнеров
 
-<li>(CI, CD) Audit Logging of activities
+<li>(CI, CD) Аудит журнала действий
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>(Modify CI/CD Configuration)
+   <td>Изменение конфигурации CI/CD
    </td>
-   <td>(Repeated)
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>(Inject code to IaC configuration)
-   </td>
-   <td>(Repeated)
+   <td>(Повтор)
    </td>
    <td>
    </td>
   </tr>
   <tr>
-   <td>(Inject code to source code)
+   <td>Внедрение кода в конфигурацию IaC
    </td>
-   <td>(Repeated)
+   <td>(Повтор)
    </td>
    <td>
    </td>
   </tr>
   <tr>
-   <td>(Inject bad dependency)
+   <td>Внедрение кода в исходный код
    </td>
-   <td>(Repeated)
+   <td>(Повтор)
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Внедрение плохой зависимости
+   </td>
+   <td>(Повтор)
    </td>
    <td>
    </td>
@@ -409,48 +409,48 @@
 
 
 
-### Privilege Escalation
+### Повышение привилегий
 
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Get credential for Deployment(CD) on CI stage
+   <td>Получение учетных данных для развертывания (CD) на этапе CI
    </td>
-   <td>Get high privilege credential in CI stage (not CD)
+   <td>Получение учетных данных с высокими привилегиями на этапе CI (не CD)
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Limit the scope of credentials in each step.
+<li>(CI, CD) Ограничьте количество учетных записей на каждом шаге
 
-<li>(CI) Always enforce Least Privilege. CI(not CD) must not have credentials for deployment
+<li>(CI) Всегда применяйте наименьшие привилегии. CI (не CD) не должен иметь учетных данных для развертывания
 
-<li>(CI, CD) Use different Identities between CI and CD
+<li>(CI, CD) Используйте разные идентификаторы для CI и CD
 
-<li>(CI, CD) Maintain strong isolation between CI and CD
+<li>(CI, CD) Поддерживайте строгую изоляцию между CI и CD
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Privileged Escalation and compromise other CI/CD pipeline
+   <td>Эскалация привлегий и компрометация другого конвейера CI/CD
    </td>
-   <td>Privilege Escalation from CI/CD Environment to other components
+   <td>Повышение привилегий из среды CI/CD в другие компоненты
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Hardening of CI/CD pipeline servers 
+<li>(CI, CD) Повышение надежности серверов CI/CD pipeline 
 
-<li>(CI, CD) Isolate CI/CD pipeline from other systems.
+<li>(CI, CD) Изолируйте CI/CD pipeline от других систем
 </li>
 </ol>
    </td>
@@ -459,7 +459,7 @@
 
 
 
-### Defense Evasion
+### Предотвращение обнаружения
 
 
 <table>
