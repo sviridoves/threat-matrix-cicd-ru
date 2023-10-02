@@ -265,64 +265,64 @@
   </tr>
 </table>
 
-### Execution (Production)
+### Выполнение (Производственная среда)
 
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Modify the configuration of Production environment
+   <td>Изменение конфигурации производственной среды
    </td>
-   <td>Modify the configuration of Production environment via stolen credentials
+   <td>Изменение конфигурации производственной среды с помощью украденных учетных данных
    </td>
    <td>
 <ol>
 
-<li>(Secret Manager) Rotate credentials regularly or issue temporary tokens only
+<li>(Secret Manager) Регулярно меняйте учетные данные или используйте только временные токены
 
-<li>(Production environment) Network Restriction to Cloud API
+<li>(Production environment) Сетевые ограничения для облачного API
 
-<li>(Production environment) Enable Audit Logging
+<li>(Production environment) Включите ведение журналов аудита
 
-<li>(Production environment) Security Monitoring of data access
+<li>(Production environment) Мониторинг безопасности доступа к данным
 
-<li>(Production environment) Enforce principle of least privilege to issued credentials
+<li>(Production environment) Применяйте принцип наименьших привилегий к выданным учетным данным
 
-<li>(Production environment) Rate limiting
+<li>(Production environment) Ограничение скорости
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Deploy modified applications or server images to production environment
+   <td>Развертывание измененных приложений или образов серверов в производственной среде
    </td>
-   <td>Deploy modified applications or server images (e.g. container image, function, VM image) to production environment via stolen credentials
+   <td>Развертывание измененных приложений или образов серверов (например, образа контейнера, функции, образа виртуальной машины) в рабочей среде с помощью украденных учетных данных
    </td>
    <td>
 <ol>
 
-<li>(Secret Manager) Rotate credentials regularly or issue temporary tokens only
+<li>(Secret Manager) Регулярно меняйте учетные данные или используйте только временные токены
 
-<li>(Git Repository) Require multi-party approval(peer review)
+<li>(Git Repository) Используйте одобрение (экспертная оценка) несколькими лицами
 
-<li>(Production environment) Verify signature of artifacts
+<li>(Production environment) Проверяйте подписи артефактов
 
-<li>(Production environment) Network Restriction to Cloud API
+<li>(Production environment) Сетевые ограничения для облачного API
 
-<li>(Production environment) Enable Audit Logging
+<li>(Production environment) Включите ведение журналов аудита
 
-<li>(Production environment) Security Monitoring of deployment
+<li>(Production environment) ониторинг безопасности развертывания
 
-<li>(Production environment) Enforce principle of least privilege to issued credentials
+<li>(Production environment) Применяйте принцип наименьших привилегий к выданным учетным данным
 
-<li>(Production environment) Rate limiting
+<li>(Production environment) Ограничение скорости
 </li>
 </ol>
    </td>
