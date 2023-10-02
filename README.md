@@ -1,7 +1,7 @@
 # Матрица угроз для CI/CD Pipeline
 
-Это матрица типа ATT&CK, ориентированная на угрозы, характерные для CI/CD Pipeline.
-[MITRE ATT&CK®](https://attack.mitre.org/) это база знаний от тактиках и техниках, применяем злоумышленниками при атаках.
+Это матрица типа ATT&CK, ориентированная на угрозы, характерные для CI/CD Pipeline.  
+[MITRE ATT&CK®](https://attack.mitre.org/) это база знаний от тактиках и техниках, применяем злоумышленниками при атаках.  
 Для описания угроз для CI/CD Pipeline, используется таже классификация, что и в MITRE ATT&CK.  
 
 ## Оглавление
@@ -23,9 +23,9 @@
     - [Supply-chain attacks are the only risk of CI/CD pipeline, correct?](#supply-chain-attacks-are-the-only-risk-of-cicd-pipeline-correct)
 
 ## Введение
-This threat map is published in conjunction to the presentation “[Attacking and Securing CI/CD Pipeline](https://speakerdeck.com/rung/cd-pipeline)” at CODE BLUE 2021 Opentalks.  
-The purpose of this matrix is to share knowledge on securing CI/CD environments with Cybersecurity community.  
-This matrix was created by Mercari Security Team, and reviewed by Platform Team.  
+Эта Матрица угроз была представлена в презентации “[Attacking and Securing CI/CD Pipeline](https://speakerdeck.com/rung/cd-pipeline)” на CODE BLUE 2021 Opentalks.  
+Цель этой матрицы — поделиться знаниями о защите сред CI/CD с сообществом кибербезопасности.  
+Эта матрица была создана Mercari Security Team и проверена Platform Team.   
 
 
 ## Матрица угроз
