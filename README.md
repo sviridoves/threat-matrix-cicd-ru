@@ -7,9 +7,9 @@
 ## Оглавление
 - [Введение](#введение)
 - [Матрица угроз](#матрица-угроз)
-- [Components of CI/CD](#components-of-cicd)
-- [Techniques and Mitigation](#techniques-and-mitigation)
-    - [Initial Access](#initial-access)
+- [Компоненты CI/CD](#компоненты-cicd)
+- [Техники и Способы предотвращения](#техники-и-способы-предотвращения)
+    - [Первоначальный доступ](#первоначальный-доступ)
     - [Execution](#execution)
     - [Execution (Production)](#execution-production)
     - [Persistence](#persistence)
@@ -32,71 +32,71 @@
 ![threat matrix](images/matrix.png "threat matrix")
 
 
-## Components of CI/CD
+## Компоненты CI/CD
 ![components](images/components.png "components")
 
-| Name                   | Tools                                                                                                                               |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Device                 | - Developer Workstation: Mac/Win/Cloud-based                                                                                        |
-| Git Repository Service | - GitHub, GitLab                                                                                                                    |
-| CI                     | - CI/CD Services (e.g. CircleCI, Cloud Build, Codebuild, GitHub Actions)                                                            |
-| CD                     | - CI/CD Services (e.g. CircleCI, Cloud Build, Codebuild, GitHub Actions) <br>- CD Services (e.g. Spinnaker, ArgoCD)                 |
-| Secret Management      | - Secret Management Services (e.g. AWS Secret Manager, GCP Secret Manager, HashiCorp Vault)                                         |
-| Production environment | - Cloud Services (e.g AWS, Google Cloud, Microsoft Azure) <br>- Other Resources (e.g. Container Registry, Linux Server, Kubernetes) |
+| Name                   | Tools                                                                                                                                               |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Device                 | - Рабочая станция разработчика: Mac/Win/Cloud-based                                                                                                 |
+| Git Repository Service | - GitHub, GitLab                                                                                                                                    |
+| CI                     | - CI/CD Сервисы (такие, как: CircleCI, Cloud Build, Codebuild, GitHub Actions)                                                                      |
+| CD                     | - CI/CD Сервисы (такие, как: CircleCI, Cloud Build, Codebuild, GitHub Actions) <br>- CD Services (e.g. Spinnaker, ArgoCD)                           |
+| Secret Management      | - Сервисы управления секретами (такие, как: AWS Secret Manager, GCP Secret Manager, HashiCorp Vault)                                                |
+| Production environment | - Облачные сервисы (такие, как: AWS, Google Cloud, Microsoft Azure) <br>- Другие ресурсы (такие, как: Container Registry, Linux Server, Kubernetes) |
 
 
-## Techniques and Mitigation
-### Initial Access
+## Техники и Способы предотвращения
+### Первоначальный доступ
 
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техники
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Supply Chain Compromise on CI/CD
+   <td>Компрометация цепочки поставок в CI/CD
    </td>
-   <td>Supply Chain Attacks to Application Library, Tools, Container Images in CI/CD Pipelines.
+   <td>Атаки в цепочке поставок библиотек, инструментов, образов контейнеров в CI/CD Pipelines.
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Limit egress connection via Proxy or IP Restriction
+<li>(CI, CD) Контроль и ограничение исходящих соединений через прокси-сервер или по IP-адресам
 
-<li>(CI, CD) Audit Logging of the activities
+<li>(CI, CD) Аудит журналов
 
-<li>(CI, CD) Security Monitoring using IDS/IPS, and EDR
+<li>(CI, CD) Мониторинг безопасности с использованием IDS/IPS и EDR
 
-<li>(CI, CD) Check each tool’s Integrity
+<li>(CI, CD) Проверка целостности всех инструментов
 
-<li>(CI, CD) Doesn’t allow untrusted libraries, tools
+<li>(CI, CD) Запрет использования ненадежных библиотек и инструментов
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Valid Account of Git Repository
+   <td>Действующая учетная запись Git репозитория
 <p>
-(Personal Token, SSH key, Login password, Browser Cookie)
+(Личный токен, ключ SSH, пароль, файл cookie браузера)
    </td>
-   <td>Use developer’s credentials to access to Git Repository Service \
-(Personal token, SSH key, browser cookie, or login password is stolen)
+   <td>Используются учетные данные разработчика для доступа к службе репозитория Git \
+(Личный токен, ключ SSH, файл cookie браузера или пароль для входа украдены)
    </td>
    <td>
 <ol>
 
-<li>(Device) Device security is out of scope
+<li>(Device) Рассмотреть отдельно безопасность рабочих станций разработчиков
 
-<li>(Git Repository) Network Restriction
+<li>(Git Repository) Сетевые ограничения (ACL, МСЭ)
 
-<li>(Git Repository) Limit access permission of each developer (e.g. no write permission, limited read permission)
+<li>(Git Repository) Ограничение прав доступа каждого разработчика (например, запрет на запись, ограниченные разрешения на чтение)
 
-<li>(CI, CD) Use GitHub App and enable IP restriction
+<li>(CI, CD) Использование приложения GitHub и включение ограничений по IP-адресам
 </li>
 </ol>
    </td>
