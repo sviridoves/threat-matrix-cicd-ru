@@ -1,12 +1,12 @@
-# Common Threat Matrix for CI/CD Pipeline
-This is an ATT&CK-like matrix focus on CI/CD Pipeline specific risk.  
-[MITRE ATT&CK®](https://attack.mitre.org/) is a knowledge base of adversary tactics and techniques.  
-To map the threat of CI/CD Pipeline, I use the same classification as the framework.  
-(Feedback is welcome)  
+# Матрица угроз для CI/CD Pipeline
 
-## Table of Contents
-- [Background](#background)
-- [Threat Matrix](#threat-matrix)
+Это матрица типа ATT&CK, ориентированная на угрозы, характерные для CI/CD Pipeline.
+[MITRE ATT&CK®](https://attack.mitre.org/) это база знаний от тактиках и техниках, применяем злоумышленниками при атаках.
+Для описания угроз для CI/CD Pipeline, используется таже классификация, что и в MITRE ATT&CK.  
+
+## Оглавление
+- [Введение](#введение)
+- [Матрица угроз](#матрица-угроз)
 - [Components of CI/CD](#components-of-cicd)
 - [Techniques and Mitigation](#techniques-and-mitigation)
     - [Initial Access](#initial-access)
@@ -22,13 +22,13 @@ To map the threat of CI/CD Pipeline, I use the same classification as the framew
 - [Common Question](#common-question)
     - [Supply-chain attacks are the only risk of CI/CD pipeline, correct?](#supply-chain-attacks-are-the-only-risk-of-cicd-pipeline-correct)
 
-## Background
+## Введение
 This threat map is published in conjunction to the presentation “[Attacking and Securing CI/CD Pipeline](https://speakerdeck.com/rung/cd-pipeline)” at CODE BLUE 2021 Opentalks.  
 The purpose of this matrix is to share knowledge on securing CI/CD environments with Cybersecurity community.  
 This matrix was created by Mercari Security Team, and reviewed by Platform Team.  
 
 
-## Threat Matrix
+## Матрица угроз
 ![threat matrix](images/matrix.png "threat matrix")
 
 
