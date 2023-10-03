@@ -17,10 +17,10 @@
     - [Предотвращение обнаружения](#предотвращение-обнаружения)
     - [Получение учетных данных](#получение-учетных-данных)
     - [Перемещение внутри периметра](#перемещение-внутри-периметра)
-    - [Exfiltration](#exfiltration)
-    - [Impact](#impact)
-- [Common Question](#common-question)
-    - [Supply-chain attacks are the only risk of CI/CD pipeline, correct?](#supply-chain-attacks-are-the-only-risk-of-cicd-pipeline-correct)
+    - [Эксфильтрация](#эксфильтрация)
+    - [Деструктивное воздействие](#деструктивное-воздействие)
+- [Общие вопросы](#общие-вопросы)
+    - [Атаки на цепочку поставок — единственный риск CI/CD pipeline, верно?](#атаки-на-цепочку-поставок-единственный-риск-CI-CD-pipeline-верно)
 
 ## Введение
 Эта Матрица угроз была представлена в презентации “[Attacking and Securing CI/CD Pipeline](https://speakerdeck.com/rung/cd-pipeline)” на CODE BLUE 2021 Opentalks.  
@@ -701,7 +701,7 @@ Need to set access controls carefully
 
 
 
-### Exfiltration
+### Эксфильтрация
 
 
 <table>
@@ -763,7 +763,7 @@ Need to set access controls carefully
 
 
 
-### Impact
+### Деструктивное воздействие
 
 
 <table>
@@ -791,8 +791,8 @@ Need to set access controls carefully
 </table>
 
   
-## Common Question
-### Supply-chain attacks are the only risk of CI/CD pipeline, correct?
+## Общие вопросы
+### Атаки на цепочку поставок — единственный риск CI/CD pipeline, верно?
 
-Supply-chain attacks are one of the most serious risks. But it is not the only risk for CI/CD Pipelines. The entire attack surface need to be considered. You can check my slide: “[Attacking and Securing CI/CD Pipeline](https://speakerdeck.com/rung/cd-pipeline)” to know risks of CI/CD pipeline
+Атаки на цепочки поставок являются одним из наиболее серьезных рисков. Но это не единственный риск для CI/CD Pipelines. Необходимо учитывать всю поверхность атаки. Вы можете посмотреть: “[Attacking and Securing CI/CD Pipeline](https://speakerdeck.com/rung/cd-pipeline)” для понимания рисков CI/CD pipeline.
 
