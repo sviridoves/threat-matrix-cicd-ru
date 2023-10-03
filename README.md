@@ -16,7 +16,7 @@
     - [Повышение привилегий](#повышение-привилегий)
     - [Предотвращение обнаружения](#предотвращение-обнаружения)
     - [Получение учетных данных](#получение-учетных-данных)
-    - [Lateral Movement](#lateral-movement)
+    - [Перемещение внутри периметра](#перемещение-внутри-периметра)
     - [Exfiltration](#exfiltration)
     - [Impact](#impact)
 - [Common Question](#common-question)
@@ -291,7 +291,7 @@
 
 <li>(Production environment) Включите ведение журналов аудита
 
-<li>(Production environment) Мониторинг безопасности доступа к данным
+<li>(Production environment) Мониторинг событий безопасности при доступе к данным
 
 <li>(Production environment) Применяйте принцип наименьших привилегий к выданным учетным данным
 
@@ -544,97 +544,97 @@
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Dumping Env Variables in CI/CD
+   <td>Дамп переменных окружения в CI/CD
    </td>
-   <td>Dump Environment Variables in CI/CD
+   <td>Дамп переменных окружения в CI/CD
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Don’t use environment variables for storing credentials
+<li>(CI, CD) Не используйте переменные среды для хранения учетных данных
 
-<li>(Secret Manager) Use secret manager which has network restriction
+<li>(Secret Manager) Используйте менеджер секретов с ограниченным сетевым доступом
 
-<li>(Secret Manager) Enable Audit Logging
+<li>(Secret Manager) Включите ведение журналов аудита
 
-<li>(Secret Manager) Security Monitoring to detect malicious activity
+<li>(Secret Manager) Мониторинг событий безопасности для обнаружения вредоносной активности
 
-<li>(Secret Manager) Rotate credentials regularly or issue temporary tokens only
+<li>(Secret Manager) Регулярно меняйте учетные данные или используйте только временные токены
 
-<li>(CI, CD) Enable Audit Logging
+<li>(CI, CD) Включите ведение журналов аудита
 
-<li>(CI, CD) Security Monitoring using IDS/IPS, and EDR
+<li>(CI, CD) Мониторинг безопасности с использованием IDS/IPS и EDR
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Access to Cloud Metadata
+   <td>Доступ к метаданным в облаке
    </td>
-   <td>Access to Cloud Metadata to get access token of Cloud resources
+   <td>Доступ к метаданным в облаке для получения токена доступа к облачным ресурсам
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Restrict metadata access from suspicious processes
+<li>(CI, CD) Ограничение доступа к метаданным для подозрительных процессов
 
-<li>(Secret Manager) Use secret manager which has network restriction
+<li>(Secret Manager) Используйте менеджер секретов с ограниченным сетевым доступом
 
-<li>(Secret Manager) Enable Audit Logging
+<li>(Secret Manager) Включите ведение журналов аудита
 
-<li>(Secret Manager) Security Monitoring to detect malicious activity
+<li>(Secret Manager) Мониторинг событий безопасности для обнаружения вредоносной активности
 
-<li>(Secret Manager) Rotate credentials regularly or issue temporary tokens only
+<li>(Secret Manager) Регулярно меняйте учетные данные или используйте только временные токены
 
-<li>(CI, CD) Enable Audit Logging
+<li>(CI, CD) Включите ведение журналов аудита
 
-<li>(CI, CD) Security Monitoring using IDS/IPS, and EDR
+<li>(CI, CD) Мониторинг безопасности с использованием IDS/IPS и EDR
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Read credentials file
+   <td>Доступ к файлу с учетными данными
    </td>
-   <td>Read credentials file mounted in CI/CD pipeline
+   <td>Чтение файла с учетными данными, используемого в CI/CD pipeline
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Disable or mask contents of files in results of CI/CD
+<li>(CI, CD) Отключите или скройте содержимое файлов в результатах CI/CD
 
-<li>(Secret Manager) Use secret manager which has network restriction
+<li>(Secret Manager) Используйте менеджер секретов с ограниченным сетевым доступом
 
-<li>(Secret Manager) Enable Audit Logging
+<li>(Secret Manager) Включите ведение журналов аудита
 
-<li>(Secret Manager) Security Monitoring to detect malicious activity
+<li>(Secret Manager) Мониторинг событий безопасности для обнаружения вредоносной активности
 
-<li>(Secret Manager) Rotate credentials regularly or issue temporary tokens only
+<li>(Secret Manager) Регулярно меняйте учетные данные или используйте только временные токены
 
-<li>(CI, CD) Enable Audit Logging
+<li>(CI, CD) Включите ведение журналов аудита
 
-<li>(CI, CD) Security Monitoring using IDS/IPS, and EDR
+<li>(CI, CD) Мониторинг безопасности с использованием IDS/IPS и EDR
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Get credential from CI/CD Admin Console
+   <td>Получение учетных данных из консоли администратора CI/CD
    </td>
-   <td>See credential from CI/CD admin console
+   <td>Просмотр учетных данных в консоли администратора CI/CD
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Doesn’t use CI/CD services that expose credentials from the system console
+<li>(CI, CD) Не использует службы CI/CD, отображающие учетные данные в системной консоли
 </li>
 </ol>
    </td>
@@ -643,7 +643,7 @@
 
 
 
-### Lateral Movement
+### Перемещение внутри периметра
 
 
 <table>
