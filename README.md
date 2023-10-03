@@ -15,7 +15,7 @@
     - [Закрепление](#закрепление)
     - [Повышение привилегий](#повышение-привилегий)
     - [Предотвращение обнаружения](#предотвращение-обнаружения)
-    - [Credential Access](#credential-access)
+    - [Получение учетных данных](#получение-учетных-данных)
     - [Lateral Movement](#lateral-movement)
     - [Exfiltration](#exfiltration)
     - [Impact](#impact)
@@ -464,73 +464,73 @@
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Add Approver using Admin permission
+   <td>Добавление Согласующего, используя доступ Администратора
    </td>
-   <td>Change Approver using Git Repository Service Admin permission
+   <td>Изменение Согласующего, используя права доступа Администратора службы репозитория Git
    </td>
    <td>
 <ol>
 
-<li>(Git Repository) Limit admin users
+<li>(Git Repository) Ограниченное количество пользователей с правами администртора
 
-<li>(Git Repository) Require multi-party approval(peer review)
+<li>(Git Repository) Используйте одобрение (экспертная оценка) несколькими лицами
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Bypass Review
+   <td>Обход проверки изменений
    </td>
-   <td>Bypass Peer Review of Git Repository
+   <td>Обход проверки изменений в репозитории Git
    </td>
    <td>
 <ol>
 
-<li>(Git Repository) Restrict repository admin from pushing to main branch without a review
+<li>(Git Repository) Запретить администратору репозитория отправлять изменения в основную ветку без проверки
 
-<li>(CD) Require additional approval from reviewer to kick CD
+<li>(CD) Требовать дополнительного одобрения согласующего для блокировки CD
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Access to Secret Manager from CI/CD kicked by different repository
+   <td>Доступ к Secret Manager из CI/CD заблокирован другим репозиторием
    </td>
-   <td>Use a CI/CD system in a different repository to leverage stolen credentials to access secret manager
+   <td>Использование системы CI/CD в другом репозитории, для того чтобы воспользоваться украденными учетными данными для Secret Manager
    </td>
    <td>
 <ol>
 
-<li>(Secret Manager) Restrict and separate access from different workloads
+<li>(Secret Manager) Ограничивайте и разделяйте доступ для разных рабочих пространств
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Modify Caches of CI/CD
+   <td>Изменение кэша CI/CD
    </td>
-   <td>Implant bad code to caches of CI/CD pipeline
+   <td>Внедрение вредоностного кода в кэш CI/CD pipeline
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Clean environment on every pipeline run
+<li>(CI, CD) Использование чистого окружения на каждом этапе CI/CD pipeline
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Implant CI/CD runner images
+   <td>Внедрение образов в CI/CD runner'ы
    </td>
-   <td>(Repeated)
+   <td>(Повтор)
    </td>
    <td>
    </td>
@@ -539,7 +539,7 @@
 
 
 
-### Credential Access
+### Получение учетных данных
 
 
 <table>
