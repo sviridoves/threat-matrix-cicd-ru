@@ -17,10 +17,10 @@
     - [Предотвращение обнаружения](#предотвращение-обнаружения)
     - [Получение учетных данных](#получение-учетных-данных)
     - [Перемещение внутри периметра](#перемещение-внутри-периметра)
-    - [Эксфильтрация](#эксфильтрация)
+    - [Эксфильтрация данных](#эксфильтрация-данных)
     - [Деструктивное воздействие](#деструктивное-воздействие)
 - [Общие вопросы](#общие-вопросы)
-    - [Атаки на цепочку поставок — единственный риск CI/CD pipeline, верно?](#атаки-на-цепочку-поставок-единственный-риск-CI-CD-pipeline-верно)
+    - [Атаки на цепочку поставок — единственный риск CI/CD pipeline, верно?](#атаки-на-цепочку-поставок-единственный-риск-cicd-pipeline-верно)
 
 ## Введение
 Эта Матрица угроз была представлена в презентации “[Attacking and Securing CI/CD Pipeline](https://speakerdeck.com/rung/cd-pipeline)” на CODE BLUE 2021 Opentalks.  
@@ -441,9 +441,9 @@
    </td>
   </tr>
   <tr>
-   <td>Эскалация привлегий и компрометация другого конвейера CI/CD
+   <td>Повышение привилегий и компрометация другого CI/CD pipeline
    </td>
-   <td>Повышение привилегий из среды CI/CD в другие компоненты
+   <td>Повышение привилегий из среды CI/CD в других компонентах
    </td>
    <td>
 <ol>
@@ -648,51 +648,49 @@
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Exploitation of Remote Services
+   <td>Эксплуатация удаленных сервисов
    </td>
-   <td>Exploit services from CI/CD Pipeline
+   <td>Эксплуатация сервисов из CI/CD Pipeline
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Isolate CI/CD pipeline systems from other services
+<li>(CI, CD) Изолируйте систему CI/CD pipeline от других сервисов
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>(Monorepo) Get credential of different folder's context
+   <td>(Монорепозиторий) Получение учетных данных для других проектов
    </td>
-   <td>In monorepo architecture of Git Repository, there are many approvers.
+   <td>В архитектуре монорепозитория Git имеется множество согласующих.
 <p>
-Need to set access controls carefully
+Необходимо тщательно настроивать контроль доступа
    </td>
    <td>
 <ol>
 
-<li>(Git Repository) Set approver for each folder
+<li>(Git Repository) Установить согласующих для каждой папки (проекта) в отдельности
 
-<li>(CI, CD, Secret Manager) Avoid sharing CI/CD environment and credentials between different folders. 
+<li>(CI, CD, Secret Manager) Избегайте совместного использования среды CI/CD и учетных данных в разных папках (проектах)
 
-<li>(CI, CD) should be isolated by environment folder or context
+<li>(CI, CD) Среда выполнения должна быть изолирована по папке (проекту) или контексту
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Privileged Escalation and compromise other CI/CD pipeline
-<p>
-(Repeated)
+   <td>Повышение привилегий и компрометация другого CI/CD pipeline
    </td>
-   <td>
+   <td>(Повтор)
    </td>
    <td>
    </td>
@@ -701,60 +699,60 @@ Need to set access controls carefully
 
 
 
-### Эксфильтрация
+### Эксфильтрация данных
 
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Exfiltrate data in Production environment
+   <td>Эксфильтрация данных в производственной среде
    </td>
-   <td>Exfiltrate data in Production environment via stolen credentials
+   <td>Эксфильтрация данных в производственной среде с помощью украденных учетных данных
    </td>
    <td>
 <ol>
 
-<li>(CI/CD) Doesn’t put data access credential in CI/CD
+<li>(CI/CD) Не помещает учетные данные для доступа к данным в CI/CD
 
-<li>(Production environment) Network Restriction to Cloud API
+<li>(Production environment) Ограничение сетевого доступа API облака
 
-<li>(Production environment) Enable Audit Logging
+<li>(Production environment) Включите ведение журналов аудита
 
-<li>(Production environment) Security Monitoring of data access
+<li>(Production environment) Мониторинг событий безопасности при доступе к данным
 
-<li>(Production environment) Enforce principle of least privilege to issued credentials
+<li>(Production environment) Обеспечьте соблюдение принципа минимальных привилегий при выдаче учетных данных
 
-<li>(Production environment) Rate limiting
+<li>(Production environment) Ограничение скорости
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Clone Git Repositories
+   <td>Клонирование репозиториев Git
    </td>
-   <td>Exfiltrate data from Git Repositories
+   <td>Эксфильтрация данных из репозиториев Git
    </td>
    <td>
 <ol>
 
-<li>(Git Repository) Network Restriction
+<li>(Git Repository) Ограничение сетевого доступа
 
-<li>(Git Repository) Use temporary tokens instead of long life static tokens
+<li>(Git Repository) Используйте временные токены вместо постоянных токенов с длительным сроком действия
 
-<li>(Git Repository) Limit access permission of each developer (e.g. no write permission, limited read permission)
+<li>(Git Repository) Ограничение прав доступа каждого разработчика (например, запрет на запись, ограниченные разрешения на чтение)
 
-<li>(Git Repository) Enable Audit Logging
+<li>(Git Repository) Включите ведение журналов аудита
 
-<li>(Git Repository) Security Monitoring of data access
+<li>(Git Repository) Мониторинг событий безопасности при доступе к данным
 
-<li>(Git Repository) Rate limiting
+<li>(Git Repository) Ограничение скорости
 </li>
 </ol>
    </td>
@@ -768,22 +766,22 @@ Need to set access controls carefully
 
 <table>
   <tr>
-   <td>Techniques
+   <td>Техника
    </td>
-   <td>Description
+   <td>Описание
    </td>
-   <td>Mitigation
+   <td>Способы предотвращения
    </td>
   </tr>
   <tr>
-   <td>Denial of Services
+   <td>Отказ в обслуживании
    </td>
-   <td>Denial of Services of CI/CD pipeline
+   <td>Отказ в обслуживании CI/CD pipeline
    </td>
    <td>
 <ol>
 
-<li>(CI, CD) Scalable Infrastructure
+<li>(CI, CD) Масштабируемая инфраструктура
 </li>
 </ol>
    </td>
