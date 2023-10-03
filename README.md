@@ -29,7 +29,7 @@
 
 
 ## Матрица угроз
-![threat matrix](images/matrix.png "threat matrix")
+![threat matrix](images/matrix_ru.png "threat matrix")
 
 
 ## Компоненты CI/CD
